@@ -1,7 +1,7 @@
 
 const Contact = () => {
     return(<>
-    <div className="w-screen h-screen bg-red-400">
+    <div className="w-full  mt-32 bg-red-400">
         <h1 className="text-white">Contact</h1>
     </div>
     </>)

@@ -1,4 +1,6 @@
 import Header from './Header';
+import Footer from './Footer';
+import Footer1 from './Footer1';
 const Layout = ({children})=>{
     return(<>
      <div className="min-h-screen flex flex-col">
@@ -6,8 +8,9 @@ const Layout = ({children})=>{
       <main className="flex-grow">
         {children}
       </main>
-      {/* <Footer />
-      <ScrollToTop /> */}
+       {/* <Footer /> */}
+       <Footer1 />
+      {/* <ScrollToTop /> */}
     </div>
     </>)
 }
