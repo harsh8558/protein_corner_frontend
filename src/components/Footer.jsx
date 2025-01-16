@@ -1,31 +1,31 @@
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import SocialHandles from './UI/SocialHandles';
 
 const Footer = () => {
   return (
-    <footer className="bg-black w-full text-gray-300 pt-8 pb-6">
+    <footer className="bg-black w-full text-gray-200 pt-8 md:pl-4 pb-6">
       <div className="container mx-auto px-4">
         {/* Logo and Description */}
-        <div className="w-full md:w-4/12 mb-8 md:mb-0">
+        <div className="w-full md:w-full mb-8 md:mb-0">
             <Link to="/" className="flex items-center mb-4">
               <img 
                 src="https://res.cloudinary.com/dxmu1ohyk/image/upload/v1736844255/protein_corner/miqg6k9ffm3iik30n0sv.png" 
-                alt="Logo" 
+                alt="Logo"
+                loading='lazy' 
                 className="w-28"
               />
             </Link>
-            <p className="text-sm mb-4">
-              Your trusted source for premium protein supplements and fitness nutrition.
+            <p className="text-md mb-4 w-80 md:w-11/12 md:text-lg text-left">
+            Protein Corner is your one-stop destination for all gym and fitness supplement needs. We offer a wide range of high-quality supplements, including protein powders, pre-workouts, BCAAs, gainers, multivitamins, and more, to support muscle growth, recovery, and overall fitness. Our mission is to provide genuine products that help fitness enthusiasts, athletes, and bodybuilders achieve their health goals effectively. Stay fit, stay strong with Protein Corner!
             </p>
               
         </div>
-        <div className="flex flex-row justify-between border-2">
-            <div className="flex flex-wrap gap-12 mt-14 w-3/4 border-2">
+        <div className="flex flex-wrap justify-between">
+            <div className="flex flex-wrap md:gap-16 mt-4 md:mt-10 w-3/4">
                 {/* Quick Links */}
                 <div className="w-full md:w-2/12 mb-8 md:mb-0">
-                <h3 className="text-lg font-semibold mb-4 text-emerald-500">Quick Links</h3>
-                <ul className="space-y-2">
+                <h3 className="text-lg md:text-xl font-semibold mb-4 text-green-500">Quick Links</h3>
+                <ul className="space-y-2 text-md md:text-lg">
                     <li><Link to="/products" className="hover:text-emerald-600 transition-colors">Products</Link></li>
                     <li><Link to="/brands" className="hover:text-emerald-600 transition-colors">Brands</Link></li>
                     <li><Link to="/our-story" className="hover:text-emerald-600 transition-colors">Our Story</Link></li>
@@ -35,8 +35,8 @@ const Footer = () => {
 
                 {/* Categories */}
                 <div className="w-full md:w-3/12 mb-8 md:mb-0 ">
-                <h3 className="text-lg font-semibold mb-4 text-emerald-500">Categories</h3>
-                <ul className="space-y-2">
+                <h3 className="text-lg md:text-xl font-semibold mb-4 text-green-500">Categories</h3>
+                <ul className="space-y-2 text-md md:text-lg">
                     <li><a href="#" className="hover:text-emerald-600 transition-colors">Protein Powder</a></li>
                     <li><a href="#" className="hover:text-emerald-600 transition-colors">Pre-Workout</a></li>
                     <li><a href="#" className="hover:text-emerald-600 transition-colors">Mass Gainers</a></li>
@@ -51,31 +51,30 @@ const Footer = () => {
 
                 {/* Contact Info */}
                 <div className="w-full md:w-3/12">
-                <h3 className="text-lg font-semibold mb-4 text-emerald-500">Contact Us</h3>
-                <ul className="space-y-2">
+                <h3 className="text-lg md:text-xl font-semibold mb-4 text-green-500">Contact Us</h3>
+                <ul className="space-y-2 text-md md:text-lg">
                     <li>123 Fitness Street</li>
                     <li>Mumbai, Maharashtra</li>
                     <li>Phone: +91 123-456-7890</li>
                     <li>Email: info@proteincorner.com</li>
                 </ul>
-                <div className="w-full md:w-3/12 mt-4">
-                    <h3 className="text-lg font-semibold mb-4 text-emerald-500">Social</h3>
-                    <div className="flex space-x-4">
-                        <a href="#" className="hover:text-green-500 transition-colors">
-                            <FontAwesomeIcon icon={faFacebook} size="lg" />
-                        </a>
-                        <a href="#" className="hover:text-green-500 transition-colors">
-                            <FontAwesomeIcon icon={faInstagram} size="lg" />
-                        </a>
-                        <a href="#" className="hover:text-green-500 transition-colors">
-                            <FontAwesomeIcon icon={faWhatsapp} size="lg" />
-                        </a>
+                <div className="w-full md:w-3/12 mt-8">
+                    <h3 className="text-lg md:text-xl font-semibold mb-4 text-green-500">Social</h3>
+                    <div className="flex space-x-4 text-md md:text-lg ">
+                        <SocialHandles />
                     </div>
                 </div>
                 </div>
-                <img src="https://res.cloudinary.com/dxmu1ohyk/image/upload/v1736844255/protein_corner/miqg6k9ffm3iik30n0sv.png" alt="Logo" 
-                className="absolute -bottom-40 md:-bottom-3/4 -right-16  md:-right-24 max-w-full -rotate-90 md:w-1/3 opacity-50 border-2 border-red-600" />
+                
             </div>
+            <div className='md:static md:w-1/4 w-3/4 flex  justify-end absolute right-0'>
+            <img 
+                src="https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737012495/protein_corner/rgsacgpxsdo7k7pkmxkq.png" 
+                alt="Logo"
+                loading="lazy" 
+                className=" -rotate-0 md:w-3/4 opacity-10 md:opacity-20"/>
+            </div>
+            
         </div>
         
         {/* Copyright */}
