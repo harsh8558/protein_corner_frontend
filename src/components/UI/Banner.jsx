@@ -46,20 +46,22 @@ const Banner = () =>{
         );
     };
     return(<>
-        <div className="relative w-full h-[500px] overflow-hidden">
-            {/* Banner Images */}
+        <div className="relative w-full md:h-[500px] h-[200px] overflow-hidden">
+            {/* Banner Images for Desktop */}
             <div 
                 className="flex transition-transform duration-500 ease-out h-full"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
             >
                 {bannerImages.map((image) => (
-                    <img
+                    <>
+                       <img
                         key={image.id}
                         src={image.url}
                         alt={image.alt}
-                        className="w-full h-full object-cover flex-shrink-0"
+                        className=" w-full h-full object-cover flex-shrink-0"
                         loading="lazy"
-                    />
+                    />                 
+                </>
                 ))}
             </div>
 
@@ -82,7 +84,7 @@ const Banner = () =>{
                 {bannerImages.map((_, index) => (
                     <button
                         key={index}
-                        className={`w-10 h-2 rounded-full transition-all ${
+                        className={`md:w-10 w-2 md:h-2 h-1 rounded-full transition-all ${
                             currentSlide === index ? 'bg-white scale-125' : 'bg-white/50'
                         }`}
                         onClick={() => goToSlide(index)}

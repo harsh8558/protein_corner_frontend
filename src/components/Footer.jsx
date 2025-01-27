@@ -15,7 +15,7 @@ const Footer = () => {
                 className="w-28"
               />
             </Link>
-            <p className="text-md mb-4 w-80 md:w-11/12 md:text-lg text-left">
+            <p className="text-md mb-4 w-[100%] md:w-11/12 md:text-lg text-left">
             Protein Corner is your one-stop destination for all gym and fitness supplement needs. We offer a wide range of high-quality supplements, including protein powders, pre-workouts, BCAAs, gainers, multivitamins, and more, to support muscle growth, recovery, and overall fitness. Our mission is to provide genuine products that help fitness enthusiasts, athletes, and bodybuilders achieve their health goals effectively. Stay fit, stay strong with Protein Corner!
             </p>
               

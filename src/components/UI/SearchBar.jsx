@@ -30,7 +30,7 @@ const SearchBar = () => {
     value={search}
     onChange={(e) => setSearch(e.target.value)}
     placeholder="Search for products..."
-    className="block w-full text-sm h-[50px] px-4 text-slate-900 bg-white rounded-[8px] border border-slate-200 appearance-none focus:border-transparent focus:outline focus:outline-2 focus:outline-blue-500 focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500 invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[4px]"
+    className="block w-full text-sm md:h-[50px] h-[40px] px-4 text-slate-900 bg-white rounded-[8px] border border-slate-200 appearance-none focus:border-transparent focus:outline focus:outline-2 focus:outline-blue-500 focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500 invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[4px]"
     id="floating_outlined"
     type="text"
   />
@@ -40,7 +40,7 @@ const SearchBar = () => {
   >
     Search...
   </label>
-  <div class="absolute top-3 right-3">
+  <div class="absolute md:top-3 top-2 right-3">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="slate-300"
