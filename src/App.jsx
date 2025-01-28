@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy ,Suspense } from 'react';
 import Layout from './components/Layout';
+import { CartProvider } from './Context/CartContext';
 
 const Home = lazy(() => import('./pages/Home'));
 const Products = lazy(() => import('./pages/Products'));
@@ -28,6 +29,7 @@ const LoadingSpinner = () => (
 function App() {
   return (
     <Router>
+      <CartProvider>
       <Suspense fallback={<LoadingSpinner />}>
         <Layout>
           
@@ -41,6 +43,7 @@ function App() {
           
         </Layout>
         </Suspense>
+        </CartProvider>
     </Router>
   )
 }
