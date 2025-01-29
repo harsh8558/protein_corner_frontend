@@ -8,6 +8,7 @@ const Products = lazy(() => import('./pages/Products'));
 const OurStory = lazy(() => import('./pages/OurStory'));
 const Brands = lazy(() => import('./pages/Brands'));
 const Contact = lazy(() => import('./pages/Contact'));
+const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 
 // Loading component
 const LoadingSpinner = () => (
@@ -23,24 +24,20 @@ const LoadingSpinner = () => (
 );
 
 
-
-
-
 function App() {
   return (
     <Router>
       <CartProvider>
       <Suspense fallback={<LoadingSpinner />}>
         <Layout>
-          
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
               <Route path="/our-story" element={<OurStory />} />
               <Route path="/brands" element={<Brands />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/products/:id" element={<ProductDetails />}/>
             </Routes>
-          
         </Layout>
         </Suspense>
         </CartProvider>

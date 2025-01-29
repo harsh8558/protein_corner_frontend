@@ -5,8 +5,10 @@ import AddToCart from "./UI/AddToCart";
 import WhatsApp from "./UI/WhatsApp";
 import LoginSignBtn from "./UI/LoginSignBtn";
 import Hamburger from "./UI/Hamburger";
+
 const Header =()=>{
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
     return(<>
     <header className="fixed top-0 left-0 right-0 pt-1 z-50 w-screen h-32 md:h-36 lg:h-32 shadow-2xl bg-zinc-900">
       <div className="container mx-auto px-6 h-full flex flex-col">

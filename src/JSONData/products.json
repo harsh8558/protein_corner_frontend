@@ -1,0 +1,229 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "badge": "Best Seller",
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970670/removed-background_4_ykdmr4.png"
+      },
+      {
+        "id": 2,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 3,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 4,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 5,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "badge": "Best Seller",
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970670/removed-background_4_ykdmr4.png"
+      },
+      {
+        "id": 6,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 7,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 8,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 9,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "badge": "Best Seller",
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970670/removed-background_4_ykdmr4.png"
+      },
+      {
+        "id": 10,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 11,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 12,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 13,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "badge": "Best Seller",
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970670/removed-background_4_ykdmr4.png"
+      },
+      {
+        "id": 14,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 15,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 16,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 17,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "badge": "Best Seller",
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970670/removed-background_4_ykdmr4.png"
+      },
+      {
+        "id": 18,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 19,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      },
+      {
+        "id": 20,
+        "name": "Product Name",
+        "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat, ipsum?",
+        "price": 10000,
+        "originalPrice": 4499,
+        "inStock": true,
+        "rating": 4.5,
+        "reviewCount": 128,
+        "image": "https://res.cloudinary.com/dxmu1ohyk/image/upload/v1737970158/creatine_sodxyj.png"
+      }
+    ]
+  }
