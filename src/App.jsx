@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { lazy ,Suspense } from 'react';
+import { lazy ,Suspense, useEffect } from 'react';
 import Layout from './components/Layout';
 import { CartProvider } from './Context/CartContext';
+import 'aos/dist/aos.css'
+import AOS from 'aos'
 
 const Home = lazy(() => import('./pages/Home'));
 const Products = lazy(() => import('./pages/Products'));
@@ -13,11 +15,11 @@ const ProductDetails = lazy(() => import('./pages/ProductDetails'));
 // Loading component
 const LoadingSpinner = () => (
   <>
-    <div className="flex justify-center items-center h-screen bg-slate-900/50 fixed inset-0">
+    <div className="flex justify-center items-center h-screen bg-slate-900 fixed inset-0">
     <div className="flex flex-row gap-2">
-      <div className="w-4 h-4 rounded-full bg-green-500 animate-bounce"></div>
-      <div className="w-4 h-4 rounded-full bg-green-500 animate-bounce [animation-delay:-.3s]"></div>
-      <div className="w-4 h-4 rounded-full bg-green-500 animate-bounce [animation-delay:-.5s]"></div>
+      <div className="w-3 h-3 rounded-full bg-green-700 animate-bounce"></div>
+      <div className="w-3 h-3 rounded-full bg-green-700 animate-bounce [animation-delay:-.3s]"></div>
+      <div className="w-3 h-3 rounded-full bg-green-700 animate-bounce [animation-delay:-.5s]"></div>
     </div>
   </div>
   </>
@@ -25,6 +27,13 @@ const LoadingSpinner = () => (
 
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: false,
+      easing: 'ease-in-out',
+    });
+  }, []);
   return (
     <Router>
       <CartProvider>

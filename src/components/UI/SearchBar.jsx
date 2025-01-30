@@ -1,35 +1,51 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 const SearchBar = () => {
     const [search, setSearch] = useState('');
-    return (<>
-    {/* <div class="relative">
-        <input
-            placeholder="Search for ingredients..."
-            class="input shadow-lg focus:border-2 border-gray-300 px-8 py-2 rounded-md w-full transition-all focus:w-full outline-none"
-            name="search"
-            type="search"
-        />
-        <svg
-            class="size-6 absolute top-2 left-1 text-gray-500"
-            stroke="currentColor"
-            stroke-width="1.5"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-        >
-            <path
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            ></path>
-        </svg>
-    </div> */}
+    const [text, setText] = useState("");
+    const [charIndex, setCharIndex] = useState(0);
+    const [wordIndex, setWordIndex] = useState(0);
+    const [isTyping, setIsTyping] = useState(true);
 
+
+    const TYPING_SPEED = 100;
+    const ERASING_SPEED = 50;
+    const PAUSE_DURATION = 2000;
+    const WORDS = ["Search for ingredients...", "Only at Protein Corner..."];
+
+    
+
+    const handleTyping = useCallback(() => {
+      if (isTyping) {
+        if (charIndex < WORDS[wordIndex].length) {
+          setText(prev => prev + WORDS[wordIndex][charIndex]);
+          setCharIndex(prev => prev + 1);
+        } else {
+          setTimeout(() => setIsTyping(false), PAUSE_DURATION);
+        }
+      } else {
+        if (charIndex > 0) {
+          setText(prev => prev.slice(0, -1));
+          setCharIndex(prev => prev - 1);
+        } else {
+          setWordIndex(prev => (prev + 1) % WORDS.length);
+          setIsTyping(true);
+        }
+      }
+    }, [charIndex, isTyping, wordIndex]);
+  
+    useEffect(() => {
+      const timeout = setTimeout(
+        handleTyping,
+        isTyping ? TYPING_SPEED : ERASING_SPEED
+      );
+      return () => clearTimeout(timeout);
+    }, [handleTyping]);
+    return (<>
 <div class="relative" id="input">
   <input
     value={search}
     onChange={(e) => setSearch(e.target.value)}
-    placeholder="Search for products..."
+    placeholder={text}
     className="block w-full text-sm md:h-[50px] h-[40px] px-4 text-slate-900 bg-white rounded-[8px] border border-slate-200 appearance-none focus:border-transparent focus:outline focus:outline-2 focus:outline-blue-500 focus:ring-0 hover:border-brand-500-secondary- peer invalid:border-error-500 invalid:focus:border-error-500 overflow-ellipsis overflow-hidden text-nowrap pr-[4px]"
     id="floating_outlined"
     type="text"
