@@ -1,183 +1,326 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogTitle, 
+  TextField, 
+  Button, 
+  IconButton, 
+  Box, 
+  Typography, 
+  Divider,
+  useMediaQuery,
+  useTheme
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+const GoogleIcon = () => (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24"
+    >
+      <path 
+        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" 
+        fill="#4285F4"
+      />
+      <path 
+        d="M12 23c2.97 0 5.46-1 7.28-2.69l-3.57-2.77c-.99.69-2.26 1.1-3.71 1.1-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" 
+        fill="#34A853"
+      />
+      <path 
+        d="M5.84 14.11c-.22-.69-.35-1.43-.35-2.11s.13-1.42.35-2.11V7.05H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.95l2.66-2.84z" 
+        fill="#FBBC05"
+      />
+      <path 
+        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.46 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.05l3.66 2.84c.87-2.6 3.3-4.51 6.16-4.51z" 
+        fill="#EA4335"
+      />
+    </svg>
+  );
 const LoginSignModal = ({ isOpen, onClose }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [isLogin, setIsLogin] = useState(true);
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
 
-  if (!isOpen) return null;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleGoogleSignIn = () => {
+    // Implement Google Sign-In logic here
+    console.log('Google Sign-In clicked');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (isLogin) {
+      // Login logic
+      console.log('Login submitted', formData.email);
+    } else {
+      // Signup logic with password confirmation
+      if (formData.password !== formData.confirmPassword) {
+        alert('Passwords do not match');
+        return;
+      }
+      console.log('Signup submitted', formData);
+    }
+  };
 
   return (
-    <div className="fixed inset-0 -left-6 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      {/* <div className="bg-white p-8 rounded-lg shadow-xl w-96 relative">
-        <button 
-          onClick={onClose} 
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900">
-          <FontAwesomeIcon icon={faXmark} className="text-2xl" />
-        </button>
-        
-        <div className="flex mb-6">
-          <button 
-            className={`w-1/2 py-2 ${isLogin ? 'bg-green-500 text-white' : 'bg-gray-200'}`}
-            onClick={() => setIsLogin(true)}
+    <Dialog 
+      open={isOpen} 
+      onClose={onClose} 
+      maxWidth={isMobile ? false : "md"}
+      fullWidth
+      fullScreen={isMobile}
+      PaperProps={{
+        sx: {
+          backgroundColor: 'black',
+          maxHeight: isMobile ? '100vh' : '90vh',
+          height: 'auto',
+          borderRadius: isMobile ? 0 : '16px',
+          overflow: 'hidden',
+          width: isMobile ? '100%' : 'auto'
+        }
+      }}
+    >
+      <Box 
+        display="flex" 
+        flexDirection={isMobile ? 'column' : 'row'}
+        height="100%"
+        width="100%"
+        border={isMobile ? 0 : 12}
+      >
+        {!isMobile && (
+          <Box 
+            flex={1} 
+            position="relative" 
+            bgcolor="black" 
+            display="flex" 
+            flexDirection="column" 
+            justifyContent="center" 
+            alignItems="center" 
+            p={4}
           >
-            Login
-          </button>
-          <button 
-            className={`w-1/2 py-2 ${!isLogin ? 'bg-green-500 text-white' : 'bg-gray-200'}`}
-            onClick={() => setIsLogin(false)}
-          >
-            Sign Up
-          </button>
-        </div>
-
-        {isLogin ? (
-          <form>
-            <input 
-              type="email" 
-              placeholder="Email" 
-              className="w-full p-2 mb-4 border rounded"
+            <img 
+              src="https://res.cloudinary.com/dxmu1ohyk/image/upload/v1736844255/protein_corner/miqg6k9ffm3iik30n0sv.png" 
+              alt="Protein Corner Logo"
+              style={{ 
+                opacity: 0.8,
+                maxWidth: '300px', 
+                objectFit: 'contain',
+                marginBottom: '20px'
+              }}
             />
-            <input 
-              type="password" 
-              placeholder="Password" 
-              className="w-full p-2 mb-4 border rounded"
-            />
-            <button 
-              type="submit" 
-              className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
+            <Typography 
+              variant="h4" 
+              color="white" 
+              align="center" 
+              gutterBottom
             >
-              Login
-            </button>
-          </form>
-        ) : (
-          <form>
-            <input 
-              type="text" 
-              placeholder="Full Name" 
-              className="w-full p-2 mb-4 border rounded"
-            />
-            <input 
-              type="email" 
-              placeholder="Email" 
-              className="w-full p-2 mb-4 border rounded"
-            />
-            <input 
-              type="password" 
-              placeholder="Password" 
-              className="w-full p-2 mb-4 border rounded"
-            />
-            <input 
-              type="password" 
-              placeholder="Confirm Password" 
-              className="w-full p-2 mb-4 border rounded"
-            />
-            <button 
-              type="submit" 
-              className="w-full bg-green-500 text-white py-2 rounded hover:bg-green-600"
+              Welcome to Protein Corner
+            </Typography>
+            <Typography 
+              variant="body1" 
+              color="white" 
+              align="center"
             >
-              Sign Up
-            </button>
-          </form>
+              Fuel your fitness journey with high-quality protein supplements
+              and expert nutritional guidance.
+            </Typography>
+          </Box>
         )}
-      </div> */}
-      <div className="fixed inset-0 z-50 md:inset-16 flex items-center justify-center bg-black/70 px-36 py-20 rounded-lg shadow-lg">
-      <button 
-          onClick={onClose} 
-          className="absolute md:top-2 md:right-4 top-12 right-3.5 text-gray-200 hover:text-red-500">
-          <FontAwesomeIcon icon={faXmark} className="text-3xl" />
-        </button>
 
-      {isLogin ? (
-         <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-         <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-green-600 to-green-400 bg-clip-border text-white shadow-lg shadow-green-500/40">
-           <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
-             Sign In
-           </h3>
-         </div>
-         <div className="flex flex-col gap-4 p-6">
-           <div className="relative h-11 w-full min-w-[200px]">
-             <input placeholder className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
-             <label className="before:content[' '] after:content[' pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-green-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-green-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-green-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-               Email
-             </label>
-           </div>
-           <div className="relative h-11 w-full min-w-[200px]">
-             <input placeholder className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
-             <label className="before:content[' '] after:content[' pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-green-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-green-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-green-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-               Password
-             </label>
-           </div>
-           <div className="-ml-2.5">
-             <div className="inline-flex items-center">
-               <label data-ripple-dark="true" htmlFor="checkbox" className="relative flex cursor-pointer items-center rounded-full p-3">
-                 <input id="checkbox" className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-green-500 checked:bg-green-500 checked:before:bg-green-500 hover:before:opacity-10" type="checkbox" />
-                 <span className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
-                   <svg strokeWidth={1} stroke="currentColor" fill="currentColor" viewBox="0 0 20 20" className="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg">
-                     <path clipRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fillRule="evenodd" />
-                   </svg>
-                 </span>
-               </label>
-               <label htmlFor="checkbox" className="mt-px cursor-pointer select-none font-light text-gray-700">
-                 Remember Me
-               </label>
-             </div>
-           </div>
-         </div>
-         <div className="p-6 pt-0">
-           <button data-ripple-light="true" type="button" className="block w-full select-none rounded-lg bg-gradient-to-tr from-green-600 to-green-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-             Sign In
-           </button>
-           <p className="mt-6 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
-             Don't have an account?
-             <button 
-               onClick={() => setIsLogin(false)}
-               className={`ml-1 block font-sans text-sm font-bold leading-normal text-green-500 antialiased`}>
-               Sign up
-             </button>
-           </p>
-         </div>
-       </div>
-      ) : (
-        <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-green-600 to-green-400 bg-clip-border text-white shadow-lg shadow-green-500/40">
-          <h3 className="block font-sans text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
-            Sign Up
-          </h3>
-        </div>
-        <div className="flex flex-col gap-4 p-6">
-          <div className="relative h-11 w-full min-w-[200px]">
-            <input type="email" placeholder className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
-            <label className="before:content[' '] after:content[' pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-green-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-green-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-green-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-              Email
-            </label>
-          </div>
-          <div className="relative h-11 w-full min-w-[200px]">
-            <input placeholder className="peer h-full w-full rounded-md border border-blue-gray-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-green-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50" />
-            <label className="before:content[' '] after:content[' pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-green-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-green-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-green-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-              Password
-            </label>
-          </div>
-        </div>
-        <div className="p-6 pt-0">
-          <button data-ripple-light="true" type="button" className="block w-full select-none rounded-lg bg-gradient-to-tr from-green-600 to-green-400 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
-            Sign In
-          </button>
-          <p className="mt-6 flex justify-center font-sans text-sm font-light leading-normal text-inherit antialiased">
-            Now,
-            <button 
-              onClick={() => setIsLogin(true)}
-              className={`ml-1 block font-sans text-sm font-bold leading-normal text-green-500 antialiased`}>
-              Sign in
-            </button>
-          </p>
-        </div>
-      </div>
-      )}
-      </div>
-      
-    </div>
+        <Box 
+          flex={1} 
+          bgcolor="white" 
+          p={isMobile ? 2 : 1} 
+          position="relative"
+          borderRadius={isMobile ? 0 : 2}
+          width={isMobile ? '100%' : 'auto'}
+        >
+          <IconButton 
+            onClick={onClose} 
+            sx={{ 
+              position: 'absolute', 
+              top: 8, 
+              right: 8,
+              color: 'black'
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+
+          <DialogTitle>
+            <Box display="flex" justifyContent="center" mb={2}>
+              <Button 
+                variant={isLogin ? 'contained' : 'outlined'} 
+                color="success" 
+                sx={{ 
+                  mr: 1, 
+                  fontSize: isMobile ? '0.8rem' : '1rem',
+                  padding: isMobile ? '6px 12px' : '8px 16px'
+                }}
+                onClick={() => setIsLogin(true)}
+              >
+                Login
+              </Button>
+              <Button 
+                variant={!isLogin ? 'contained' : 'outlined'} 
+                color="success"
+                sx={{ 
+                  fontSize: isMobile ? '0.8rem' : '1rem',
+                  padding: isMobile ? '6px 12px' : '8px 16px'
+                }}
+                onClick={() => setIsLogin(false)}
+              >
+                Sign Up
+              </Button>
+            </Box>
+          </DialogTitle>
+
+          <DialogContent>
+            <Button 
+              variant="outlined" 
+              color="secondary" 
+              startIcon={<GoogleIcon />} 
+              fullWidth 
+              sx={{ 
+                mb: 2,
+                fontSize: isMobile ? '0.8rem' : '1rem'
+              }}
+              onClick={handleGoogleSignIn}
+            >
+              Continue with Google
+            </Button>
+
+            <Divider sx={{ mb: 2 }}>
+              <Typography color="textSecondary">OR</Typography>
+            </Divider>
+
+            <form onSubmit={handleSubmit}>
+              {!isLogin && (
+                <TextField
+                  fullWidth
+                  label="Full Name"
+                  name="fullName"
+                  value={formData.fullName}
+                  onChange={handleInputChange}
+                  margin="normal"
+                  required
+                  variant="outlined"
+                  size={isMobile ? 'small' : 'medium'}
+                  InputProps={{
+                    sx: {
+                      fontSize: isMobile ? '0.8rem' : '1rem'
+                    }
+                  }}
+                  InputLabelProps={{
+                    sx: {
+                      fontSize: isMobile ? '0.8rem' : '1rem'
+                    }
+                  }}
+                />
+              )}
+              <TextField
+                fullWidth
+                label="Email"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                margin="normal"
+                required
+                variant="outlined"
+                size={isMobile ? 'small' : 'medium'}
+                InputProps={{
+                  sx: {
+                    fontSize: isMobile ? '0.8rem' : '1rem'
+                  }
+                }}
+                InputLabelProps={{
+                  sx: {
+                    fontSize: isMobile ? '0.8rem' : '1rem'
+                  }
+                }}
+              />
+              <TextField
+                fullWidth
+                label="Password"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                margin="normal"
+                required
+                variant="outlined"
+                size={isMobile ? 'small' : 'medium'}
+                InputProps={{
+                  sx: {
+                    fontSize: isMobile ? '0.8rem' : '1rem'
+                  }
+                }}
+                InputLabelProps={{
+                  sx: {
+                    fontSize: isMobile ? '0.8rem' : '1rem'
+                  }
+                }}
+              />
+              {!isLogin && (
+                <TextField
+                  fullWidth
+                  label="Confirm Password"
+                  type="password"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleInputChange}
+                  margin="normal"
+                  required
+                  variant="outlined"
+                  size={isMobile ? 'small' : 'medium'}
+                  InputProps={{
+                    sx: {
+                      fontSize: isMobile ? '0.8rem' : '1rem'
+                    }
+                  }}
+                  InputLabelProps={{
+                    sx: {
+                      fontSize: isMobile ? '0.8rem' : '1rem'
+                    }
+                  }}
+                />
+              )}
+              <Button 
+                type="submit" 
+                variant="contained" 
+                color="success" 
+                fullWidth 
+                sx={{ 
+                  mt: 2, 
+                  py: isMobile ? 1 : 1.5,
+                  fontSize: isMobile ? '0.9rem' : '1rem'
+                }}
+              >
+                {isLogin ? 'Login' : 'Sign Up'}
+              </Button>
+            </form>
+          </DialogContent>
+        </Box>
+      </Box>
+    </Dialog>
   );
 };
 
 export default LoginSignModal;
+

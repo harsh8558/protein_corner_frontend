@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { FaStar, FaShoppingCart, FaHeart, FaMinus, FaPlus } from 'react-icons/fa';
+import productsData from "../JSONData/products.json"
 
 const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedVariant, setSelectedVariant] = useState(null);
+  
   const { id } = useParams();
 
   useEffect(() => {
@@ -25,6 +27,7 @@ const ProductDetails = () => {
     };
     fetchProduct();
   }, [id]);
+
 
   const handleQuantityChange = (change) => {
     setQuantity(prevQuantity => {

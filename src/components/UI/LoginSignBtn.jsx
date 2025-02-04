@@ -35,7 +35,9 @@ const LoginSignBtn = () => {
     </div>
   </div>
   {/* Mobile */}
-  <div onClick={openModal} className="md:hidden flex items-center cursor-pointer">
+  <div 
+    onClick={openModal} 
+    className="md:hidden flex items-center cursor-pointer">
     <div className="flex justify-center items-center gap-1 bg-white hover:bg-green-500 px-2 py-2 rounded-full">
       <div><FontAwesomeIcon icon={faUser} className="px-1 text-[15px] rounded-[50%]" /></div>
     </div>
